@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Misión Compartida — Instituto Estrada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .content-area { max-width: 1200px; margin: 0 auto; padding: 44px 24px; }
+    .sidebar-layout { display: grid; grid-template-columns: 220px 1fr; gap: 32px; }
+    .sidebar { background: #fff; border-radius: 8px; border: 0.5px solid var(--borde); padding: 10px 0; align-self: start; position: sticky; top: 80px; }
+    .sidebar h4 { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gris); padding: 12px 18px 6px; }
+    .sidebar a { display: block; padding: 9px 18px; font-size: 13px; color: #333; text-decoration: none; border-left: 3px solid transparent; transition: all 0.15s; }
+    .sidebar a:hover, .sidebar a.active { color: var(--azul); background: var(--crema); border-left-color: var(--dorado); }
+    .prose p { font-size: 14.5px; color: #333; line-height: 1.8; margin-bottom: 16px; }
+    .pilares-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin: 24px 0; }
+    .pilar-card { background: #fff; border-radius: 8px; border: 0.5px solid var(--borde); padding: 22px 18px; border-top: 3px solid var(--dorado); }
+    .pilar-card i { font-size: 24px; color: var(--azul); margin-bottom: 12px; display: block; }
+    .pilar-card h4 { font-size: 14px; font-weight: 700; color: #1e1e1e; margin-bottom: 8px; }
+    .pilar-card p { font-size: 13px; color: var(--gris); line-height: 1.6; }
+    @media (max-width: 768px) { .sidebar-layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+  </style>
+</head>
+<body>
+<div id="topbar"></div>
+<div id="navbar"></div>
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Institucional</div>
+    <h1>Misión Compartida</h1>
+    <p>El compromiso que une a laicos y religiosos en nuestra propuesta educativa verbita.</p>
+  </div>
+</div>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Inicio</a><i class="fas fa-chevron-right"></i>
+    <a href="institucional.html">Institucional</a><i class="fas fa-chevron-right"></i>
+    <span>Misión Compartida</span>
+  </div>
+</div>
+<div class="content-area">
+  <div class="sidebar-layout">
+    <aside class="sidebar">
+      <h4>Institucional</h4>
+      <a href="institucional.html">Equipo Directivo</a>
+      <a href="mision.html">Misión, Visión y Valores</a>
+      <a href="historia.html">De Steyl a Calzada</a>
+      <a href="mision-compartida.html" class="active">Misión Compartida</a>
+    </aside>
+    <div>
+      <div class="section-label">Misión compartida</div>
+      <div class="prose">
+        <p>La Misión Compartida es el camino a través del cual los laicos —docentes, familias y miembros de la comunidad— participan activamente de la misión evangelizadora de la Congregación del Verbo Divino. No se trata de un apoyo externo, sino de una corresponsabilidad real en la identidad y el horizonte de la institución.</p>
+        <p>En nuestro colegio, la Misión Compartida implica que cada persona que forma parte de la comunidad educativa —independientemente de su función— es portadora de los valores verbitas: el diálogo intercultural, la justicia, el cuidado de la creación y el espíritu misionero.</p>
+        <p>Este camino se concreta en espacios de formación, reflexión y acción compartida, donde religiosos y laicos caminan juntos en la construcción de una escuela que sea signo del Reino de Dios.</p>
+      </div>
+      <div class="pilares-grid">
+        <div class="pilar-card">
+          <i class="fas fa-bible"></i>
+          <h4>Formación en la fe</h4>
+          <p>Espacios de reflexión y formación para toda la comunidad educativa en los valores del Evangelio.</p>
+        </div>
+        <div class="pilar-card">
+          <i class="fas fa-hands-helping"></i>
+          <h4>Corresponsabilidad</h4>
+          <p>Laicos y religiosos comparten la responsabilidad de la misión educativa con igual compromiso.</p>
+        </div>
+        <div class="pilar-card">
+          <i class="fas fa-globe"></i>
+          <h4>Espíritu misionero</h4>
+          <p>Apertura a la diversidad cultural y religiosa como expresión del carisma verbita.</p>
+        </div>
+        <div class="pilar-card">
+          <i class="fas fa-seedling"></i>
+          <h4>Cuidado de la creación</h4>
+          <p>Compromiso con el medioambiente y la sostenibilidad como dimensión de la justicia.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="footer"></div>
+<script src="../components.js"></script>
+<script>initPage('institucional');</script>
+</body>
+</html>

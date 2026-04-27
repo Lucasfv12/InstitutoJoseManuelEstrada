@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instituto José Manuel Estrada – Rafael Calzada</title>
+  <meta name="description" content="Instituto José Manuel Estrada, Rafael Calzada. Educación católica de nivel inicial, primario y secundario. Congregación del Verbo Divino." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ===== HERO ===== */
+    .hero { position: relative; overflow: hidden; background: var(--azul); height: 500px; }
+    .carousel-track { display: flex; height: 100%; transition: transform 0.7s cubic-bezier(0.4,0,0.2,1); }
+    .carousel-slide { min-width: 100%; height: 100%; position: relative; display: flex; align-items: center; }
+    .slide-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+    .slide-bg::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to right, rgba(12,30,60,0.85) 40%, rgba(12,30,60,0.3) 100%);
+    }
+    .slide-content { position: relative; z-index: 2; max-width: 600px; padding: 0 60px; color: #fff; }
+    .slide-content .eyebrow {
+      font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--dorado-claro); font-weight: 700; margin-bottom: 12px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .slide-content .eyebrow::before { content: ''; width: 28px; height: 2px; background: var(--dorado); display: block; }
+    .slide-content h1 { font-family: 'Playfair Display', serif; font-size: 40px; font-weight: 600; line-height: 1.2; margin-bottom: 14px; }
+    .slide-content p { font-size: 15px; color: rgba(255,255,255,0.75); margin-bottom: 26px; line-height: 1.7; }
+    .slide-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-hero-primary {
+      background: var(--dorado); color: #fff; text-decoration: none;
+      padding: 12px 26px; border-radius: 5px; font-weight: 700; font-size: 13px;
+      display: inline-flex; align-items: center; gap: 7px; transition: background 0.2s;
+    }
+    .btn-hero-primary:hover { background: #a07d10; }
+    .btn-hero-outline {
+      border: 1.5px solid rgba(255,255,255,0.5); color: #fff; text-decoration: none;
+      padding: 12px 26px; border-radius: 5px; font-weight: 600; font-size: 13px;
+      display: inline-flex; align-items: center; gap: 7px; transition: background 0.2s;
+    }
+    .btn-hero-outline:hover { background: rgba(255,255,255,0.1); }
+    .carousel-prev, .carousel-next {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,255,255,0.12); border: none; color: #fff;
+      width: 46px; height: 46px; border-radius: 50%; cursor: pointer; z-index: 10;
+      font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+    }
+    .carousel-prev { left: 18px; } .carousel-next { right: 18px; }
+    .carousel-prev:hover, .carousel-next:hover { background: rgba(255,255,255,0.25); }
+    .carousel-dots { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 7px; z-index: 10; }
+    .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.35); border: none; cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
+    .carousel-dot.active { background: var(--dorado); transform: scale(1.3); }
+
+    /* ===== NIVELES BAR ===== */
+    .niveles-bar { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .nivel-item {
+      padding: 22px 16px; text-align: center; cursor: pointer;
+      text-decoration: none; border-right: 1px solid rgba(255,255,255,0.1);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      transition: filter 0.2s;
+    }
+    .nivel-item:last-child { border-right: none; }
+    .nivel-item:hover { filter: brightness(1.12); }
+    .nivel-item .ico {
+      width: 44px; height: 44px; background: rgba(255,255,255,0.15);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: #fff; transition: background 0.2s;
+    }
+    .nivel-item:hover .ico { background: rgba(255,255,255,0.28); }
+    .nivel-item h3 { color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; }
+    .nivel-item p { color: rgba(255,255,255,0.62); font-size: 11px; }
+    .n1 { background: #2a5f9e; } .n2 { background: #1f4f88; }
+    .n3 { background: #163e72; } .n4 { background: #0e2e5b; }
+
+    /* ===== INSCRIPCION BANNER ===== */
+    .banner-inscripcion {
+      background: var(--dorado); padding: 16px 36px;
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    }
+    .banner-inscripcion .texto h2 { color: #fff; font-size: 17px; font-weight: 700; }
+    .banner-inscripcion .texto p { color: rgba(255,255,255,0.85); font-size: 13px; margin-top: 2px; }
+    .banner-formularios { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-formulario {
+      background: #fff; color: var(--dorado); font-size: 12px; font-weight: 700;
+      padding: 9px 18px; border-radius: 4px; text-decoration: none;
+      transition: transform 0.1s, box-shadow 0.1s; white-space: nowrap;
+    }
+    .btn-formulario:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(0,0,0,0.12); }
+
+    /* ===== MAIN CONTENT ===== */
+    .main-section { max-width: 1200px; margin: 0 auto; padding: 44px 24px; display: grid; grid-template-columns: 1fr 320px; gap: 32px; }
+
+    /* Novedades */
+    .novedades-grid { display: flex; flex-direction: column; gap: 14px; }
+    .novedad-card {
+      background: #fff; border-radius: 8px; border: 0.5px solid var(--borde);
+      padding: 16px; display: flex; gap: 14px; align-items: flex-start;
+      text-decoration: none; color: inherit; transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .novedad-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .nov-fecha { background: var(--azul); color: #fff; border-radius: 6px; padding: 7px 10px; text-align: center; min-width: 46px; flex-shrink: 0; }
+    .nov-fecha .dia { font-size: 21px; font-weight: 700; line-height: 1; }
+    .nov-fecha .mes { font-size: 10px; text-transform: uppercase; opacity: 0.75; margin-top: 2px; }
+    .nov-body h4 { font-size: 14px; font-weight: 700; color: #1e1e1e; line-height: 1.4; }
+    .nov-body p { font-size: 12px; color: var(--gris); margin-top: 4px; line-height: 1.55; }
+
+    /* Agenda */
+    .agenda-box { background: #fff; border-radius: 8px; border: 0.5px solid var(--borde); overflow: hidden; }
+    .agenda-header { background: var(--azul); padding: 14px 18px; }
+    .agenda-list { padding: 0; }
+    .agenda-item { padding: 13px 18px; border-bottom: 0.5px solid var(--borde); display: flex; gap: 12px; align-items: flex-start; }
+    .agenda-item:last-child { border-bottom: none; }
+    .agenda-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dorado); margin-top: 5px; flex-shrink: 0; }
+    .agenda-fecha { font-size: 10px; font-weight: 700; color: var(--azul); text-transform: uppercase; letter-spacing: 0.5px; }
+    .agenda-evento { font-size: 13px; color: #1e1e1e; margin-top: 2px; line-height: 1.4; }
+    .agenda-sub { font-size: 11px; color: var(--gris); margin-top: 2px; }
+
+    /* ===== CAMPUS ===== */
+    .campus-section { background: #fff; border-top: 1px solid var(--borde); }
+    .campus-inner { max-width: 1200px; margin: 0 auto; padding: 44px 24px; }
+    .campus-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 20px; }
+    .campus-card { border-radius: 8px; overflow: hidden; border: 0.5px solid var(--borde); text-decoration: none; transition: box-shadow 0.2s, transform 0.2s; display: block; }
+    .campus-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.1); transform: translateY(-3px); }
+    .campus-img { height: 140px; object-fit: cover; width: 100%; display: block; }
+    .campus-img-placeholder { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 38px; }
+    .campus-img-placeholder.patin { background: #dbeafe; }
+    .campus-img-placeholder.ingles { background: #dcfce7; }
+    .campus-img-placeholder.deporte { background: #fef9c3; }
+    .campus-info { padding: 14px 16px; }
+    .campus-info h4 { font-size: 14px; font-weight: 700; color: #1e1e1e; }
+    .campus-info p { font-size: 12px; color: var(--gris); margin-top: 4px; }
+    .campus-link { font-size: 11px; color: var(--azul); font-weight: 700; margin-top: 8px; display: inline-flex; align-items: center; gap: 4px; }
+
+    /* ===== STATS ===== */
+    .stats-section { background: var(--azul); }
+    .stats-inner { max-width: 1200px; margin: 0 auto; padding: 36px 24px; display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-item { text-align: center; padding: 16px 12px; border-right: 1px solid rgba(255,255,255,0.1); }
+    .stat-item:last-child { border-right: none; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 600; color: var(--dorado-claro); line-height: 1; }
+    .stat-label { font-size: 11px; font-weight: 600; color: rgba(255,255,255,0.65); letter-spacing: 1px; text-transform: uppercase; margin-top: 7px; }
+
+    /* ===== INSTITUCIONAL STRIP ===== */
+    .inst-section { background: var(--crema); border-top: 1px solid var(--borde); }
+    .inst-inner { max-width: 1200px; margin: 0 auto; padding: 44px 24px; }
+    .inst-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px; }
+    .inst-card {
+      background: #fff; border-radius: 8px; border: 0.5px solid var(--borde);
+      padding: 22px 16px; text-align: center; text-decoration: none; color: inherit;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .inst-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .inst-card i { font-size: 26px; color: var(--azul); margin-bottom: 12px; display: block; }
+    .inst-card h4 { font-size: 13px; font-weight: 700; color: #1e1e1e; margin-bottom: 6px; }
+    .inst-card p { font-size: 12px; color: var(--gris); line-height: 1.55; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero { height: 380px; }
+      .slide-content { padding: 0 32px; }
+      .slide-content h1 { font-size: 28px; }
+      .niveles-bar { grid-template-columns: repeat(2, 1fr); }
+      .main-section { grid-template-columns: 1fr; }
+      .campus-grid { grid-template-columns: repeat(2, 1fr); }
+      .stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .inst-grid { grid-template-columns: repeat(2, 1fr); }
+      .banner-inscripcion { flex-direction: column; align-items: flex-start; padding: 16px 24px; }
+    }
+    @media (max-width: 560px) {
+      .hero { height: 300px; }
+      .slide-content h1 { font-size: 22px; }
+      .campus-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="topbar"></div>
+<div id="navbar"></div>
+
+<!-- HERO -->
+<section class="hero" aria-label="Slider principal">
+  <div class="carousel-track" id="carouselTrack">
+
+    <div class="carousel-slide">
+      <div class="slide-bg" style="background-image:url('images/imagen1conescudo.webp')"></div>
+      <div class="slide-content">
+        <div class="eyebrow">Bienvenidos</div>
+        <h1>Instituto José Manuel Estrada</h1>
+        <p>Una comunidad educativa comprometida con la formación integral, los valores del Evangelio y el crecimiento de cada alumno.</p>
+        <div class="slide-btns">
+          <a href="#inscripcion" class="btn-hero-primary"><i class="fas fa-pen"></i> Inscripción 2026</a>
+          <a href="pages/mision.html" class="btn-hero-outline">Nuestra misión</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-slide">
+      <div class="slide-bg" style="background-image:url('images/Jardin.webp')"></div>
+      <div class="slide-content">
+        <div class="eyebrow">Nivel Inicial</div>
+        <h1>Un lugar pensado para crecer</h1>
+        <p>El Nivel Inicial abarca Jardín de Infantes y Preescolar en un clima de afecto, respeto y juego que impulsa el desarrollo integral.</p>
+        <div class="slide-btns">
+          <a href="pages/nivel-inicial.html" class="btn-hero-primary">Conocer más</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-slide">
+      <div class="slide-bg" style="background-image:url('images/Graduacion.jpg')"></div>
+      <div class="slide-content">
+        <div class="eyebrow">Nivel Secundario</div>
+        <h1>Formando jóvenes para el futuro</h1>
+        <p>Un secundario con identidad, proyectos propios y egresados comprometidos con su comunidad y el mundo que los rodea.</p>
+        <div class="slide-btns">
+          <a href="pages/nivel-secundario.html" class="btn-hero-primary">Ver más</a>
+          <a href="pages/historia.html" class="btn-hero-outline">Nuestra historia</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <button class="carousel-prev" id="carouselPrev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+  <button class="carousel-next" id="carouselNext" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+  <div class="carousel-dots" id="carouselDots"></div>
+</section>
+
+<!-- NIVELES -->
+<div class="niveles-bar">
+  <a href="pages/nivel-inicial.html" class="nivel-item n1">
+    <div class="ico"><i class="fas fa-paint-brush"></i></div>
+    <h3>Nivel Inicial</h3><p>Sala 3, 4 y 5</p>
+  </a>
+  <a href="pages/nivel-primario.html" class="nivel-item n2">
+    <div class="ico"><i class="fas fa-book-open"></i></div>
+    <h3>Nivel Primario</h3><p>1° a 7° grado</p>
+  </a>
+  <a href="pages/nivel-secundario.html" class="nivel-item n3">
+    <div class="ico"><i class="fas fa-graduation-cap"></i></div>
+    <h3>Nivel Secundario</h3><p>1° a 6° año</p>
+  </a>
+  <a href="pages/pastoral.html" class="nivel-item n4">
+    <div class="ico"><i class="fas fa-church"></i></div>
+    <h3>Pastoral</h3><p>Identidad y valores</p>
+  </a>
+</div>
+
+<!-- BANNER INSCRIPCION -->
+<div class="banner-inscripcion" id="inscripcion">
+  <div class="texto">
+    <h2><i class="fas fa-star" style="font-size:14px;margin-right:6px;"></i>Inscripción 2026 — Vacantes abiertas</h2>
+    <p>Completá el formulario correspondiente a tu nivel y reservá tu lugar.</p>
+  </div>
+  <div class="banner-formularios">
+    <a href="#" class="btn-formulario">Nivel Inicial</a>
+    <a href="#" class="btn-formulario">Nivel Primario</a>
+    <a href="#" class="btn-formulario">Nivel Secundario</a>
+  </div>
+</div>
+
+<!-- NOVEDADES + AGENDA -->
+<div class="main-section">
+  <div>
+    <div class="section-label">Novedades</div>
+    <div class="novedades-grid">
+
+      <a class="novedad-card" href="#">
+        <div class="nov-fecha"><div class="dia">28</div><div class="mes">Abr</div></div>
+        <div class="nov-body">
+          <h4>Reunión de padres — Nivel Primario</h4>
+          <p>Encuentro informativo sobre el proyecto pedagógico 2026 para familias de 3° a 6° grado. Sala de actos, 18:00 hs.</p>
+          <span class="tag tag-primario">Primario</span>
+        </div>
+      </a>
+
+      <a class="novedad-card" href="#">
+        <div class="nov-fecha"><div class="dia">02</div><div class="mes">May</div></div>
+        <div class="nov-body">
+          <h4>Jornada de convivencia — Nivel Secundario</h4>
+          <p>Actividad de integración para 1° y 2° año con salida al campo de deportes. Llevar ropa deportiva.</p>
+          <span class="tag tag-secundario">Secundario</span>
+        </div>
+      </a>
+
+      <a class="novedad-card" href="#">
+        <div class="nov-fecha"><div class="dia">10</div><div class="mes">May</div></div>
+        <div class="nov-body">
+          <h4>Muestra de Arte — Nivel Inicial</h4>
+          <p>Exposición de trabajos del primer bimestre. Abierto a toda la comunidad educativa. 17:00 hs.</p>
+          <span class="tag tag-inicial">Inicial</span>
+        </div>
+      </a>
+
+      <a class="novedad-card" href="pages/pastoral.html#colectas">
+        <div class="nov-fecha"><div class="dia">15</div><div class="mes">May</div></div>
+        <div class="nov-body">
+          <h4>Campaña Pastoral — Colecta solidaria de invierno</h4>
+          <p>Se reciben abrigos, alimentos no perecederos y útiles escolares en portería. Gracias por colaborar.</p>
+          <span class="tag tag-pastoral">Pastoral</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <div>
+    <div class="agenda-box">
+      <div class="agenda-header">
+        <div class="section-label white">Agenda</div>
+      </div>
+      <div class="agenda-list">
+        <div class="agenda-item">
+          <div class="agenda-dot"></div>
+          <div>
+            <div class="agenda-fecha">Lun 28 Abr</div>
+            <div class="agenda-evento">Inicio jornada completa — todos los niveles</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-dot"></div>
+          <div>
+            <div class="agenda-fecha">Mié 30 Abr</div>
+            <div class="agenda-evento">Reunión de admisión — Nivel Inicial</div>
+            <div class="agenda-sub">16:00 hs · Sala de actos</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-dot"></div>
+          <div>
+            <div class="agenda-fecha">Jue 1 May</div>
+            <div class="agenda-evento">Feriado — Día del Trabajador</div>
+            <div class="agenda-sub">Sin clases</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-dot"></div>
+          <div>
+            <div class="agenda-fecha">Vie 9 May</div>
+            <div class="agenda-evento">Acto por el Día de la Patria</div>
+            <div class="agenda-sub">9:00 hs · Patio central</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-dot"></div>
+          <div>
+            <div class="agenda-fecha">Lun 12 May</div>
+            <div class="agenda-evento">Entrega de libretas — Primaria</div>
+            <div class="agenda-sub">Primer bimestre</div>
+          </div>
+        </div>
+        <div class="agenda-item">
+          <div class="agenda-dot"></div>
+          <div>
+            <div class="agenda-fecha">Dom 25 May</div>
+            <div class="agenda-evento">Feriado — 25 de Mayo</div>
+            <div class="agenda-sub">Sin clases</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CAMPUS CULTURAL -->
+<section class="campus-section">
+  <div class="campus-inner">
+    <div class="section-label">Campus Cultural</div>
+    <div class="campus-grid">
+      <a href="pages/campus.html#patin" class="campus-card">
+        <img src="images/patin.jpg" alt="Taller de Patín" class="campus-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="campus-img-placeholder patin" style="display:none">⛸️</div>
+        <div class="campus-info">
+          <h4>Taller de Patín</h4>
+          <p>Clases para alumnos de nivel inicial y primario con instructor especializado.</p>
+          <span class="campus-link">Ver más <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+        </div>
+      </a>
+      <a href="pages/campus.html#ingles" class="campus-card">
+        <img src="images/ingles.jpg" alt="Inglés" class="campus-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="campus-img-placeholder ingles" style="display:none">🌐</div>
+        <div class="campus-info">
+          <h4>Inglés</h4>
+          <p>Programa con talleres intensivos desde el nivel inicial hasta el secundario.</p>
+          <span class="campus-link">Ver más <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+        </div>
+      </a>
+      <a href="pages/campus.html#deporte" class="campus-card">
+        <img src="images/campo.jpg" alt="Campo de Deportes" class="campus-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="campus-img-placeholder deporte" style="display:none">⚽</div>
+        <div class="campus-info">
+          <h4>Campo de Deportes</h4>
+          <p>Fútbol, vóley, atletismo y más en instalaciones propias del colegio.</p>
+          <span class="campus-link">Ver más <i class="fas fa-arrow-right" style="font-size:10px"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="stat-num" data-target="3000">0</div><div class="stat-label">Alumnos</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="60">0</div><div class="stat-label">Años de historia</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="300">0</div><div class="stat-label">Educadores</div></div>
+    <div class="stat-item"><div class="stat-num" data-target="3">0</div><div class="stat-label">Niveles educativos</div></div>
+  </div>
+</section>
+
+<!-- INSTITUCIONAL STRIP -->
+<section class="inst-section">
+  <div class="inst-inner">
+    <div class="section-label">Conocé el instituto</div>
+    <div class="inst-grid">
+      <a href="pages/institucional.html" class="inst-card">
+        <i class="fas fa-users"></i>
+        <h4>Equipo Directivo</h4>
+        <p>Conocé a las autoridades y referentes de nuestra comunidad educativa.</p>
+      </a>
+      <a href="pages/mision.html" class="inst-card">
+        <i class="fas fa-star"></i>
+        <h4>Misión y Valores</h4>
+        <p>Nuestra identidad, visión y el compromiso que nos une como institución.</p>
+      </a>
+      <a href="pages/historia.html" class="inst-card">
+        <i class="fas fa-history"></i>
+        <h4>Nuestra Historia</h4>
+        <p>De la misión verbita en Steyl a la comunidad de Rafael Calzada.</p>
+      </a>
+      <a href="pages/pastoral.html" class="inst-card">
+        <i class="fas fa-cross"></i>
+        <h4>Pastoral</h4>
+        <p>La congregación que sostiene y anima nuestra propuesta educativa.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div>
+
+<script src="components.js"></script>
+<script>
+  initPage('inicio');
+
+  // Carousel
+  const track = document.getElementById('carouselTrack');
+  const slides = track.querySelectorAll('.carousel-slide');
+  const dotsEl = document.getElementById('carouselDots');
+  let current = 0, timer;
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', 'Slide ' + (i+1));
+    d.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(d);
+  });
+  function goTo(n) {
+    current = (n + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    clearInterval(timer); timer = setInterval(() => goTo(current + 1), 5500);
+  }
+  document.getElementById('carouselPrev').addEventListener('click', () => goTo(current - 1));
+  document.getElementById('carouselNext').addEventListener('click', () => goTo(current + 1));
+  timer = setInterval(() => goTo(current + 1), 5500);
+
+  // Counter
+  const counters = document.querySelectorAll('.stat-num[data-target]');
+  new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, target = +el.dataset.target;
+      let val = 0;
+      const step = target / 80;
+      const t = setInterval(() => {
+        val = Math.min(val + step, target);
+        el.textContent = Math.floor(val).toLocaleString('es-AR') + (target >= 100 ? '+' : '');
+        if (val >= target) clearInterval(t);
+      }, 18);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.4 }).observe(counters[0]);
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, target = +el.dataset.target;
+      let val = 0; const step = target / 80;
+      const t = setInterval(() => {
+        val = Math.min(val + step, target);
+        el.textContent = Math.floor(val).toLocaleString('es-AR') + (target >= 100 ? '+' : '');
+        if (val >= target) clearInterval(t);
+      }, 18);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.4 });
+  counters.forEach(c => counterObserver.observe(c));
+</script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nivel Secundario — Instituto Estrada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .content-area { max-width: 1200px; margin: 0 auto; padding: 44px 24px; }
+    .sidebar-layout { display: grid; grid-template-columns: 220px 1fr; gap: 32px; }
+    .sidebar { background: #fff; border-radius: 8px; border: 0.5px solid var(--borde); padding: 10px 0; align-self: start; position: sticky; top: 80px; }
+    .sidebar .nivel-header { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dorado); padding: 10px 18px 3px; }
+    .sidebar a { display: block; padding: 9px 18px; font-size: 13px; color: #333; text-decoration: none; border-left: 3px solid transparent; transition: all 0.15s; }
+    .sidebar a:hover, .sidebar a.active { color: var(--azul); background: var(--crema); border-left-color: var(--dorado); }
+    .sidebar .sep { height: 1px; background: var(--borde); margin: 6px 12px; }
+    .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 36px; }
+    .intro-img img { width: 100%; height: 260px; object-fit: cover; display: block; border-radius: 10px; }
+    .intro-text h2 { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--azul); margin-bottom: 14px; }
+    .intro-text p { font-size: 14.5px; color: #333; line-height: 1.8; margin-bottom: 14px; }
+    .anios-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; margin: 16px 0; }
+    .anio-item { background: var(--azul); color: #fff; border-radius: 8px; padding: 14px 6px; text-align: center; font-size: 13px; font-weight: 700; }
+    .anio-item span { display: block; font-size: 10px; color: rgba(255,255,255,0.7); margin-top: 3px; font-weight: 400; }
+    .prop-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 16px; }
+    .prop-card { background: #fff; border-radius: 8px; border: 0.5px solid var(--borde); padding: 18px; border-top: 3px solid var(--dorado); }
+    .prop-card i { font-size: 22px; color: var(--azul); margin-bottom: 10px; display: block; }
+    .prop-card h4 { font-size: 13px; font-weight: 700; color: #1e1e1e; margin-bottom: 6px; }
+    .prop-card p { font-size: 12px; color: var(--gris); line-height: 1.55; }
+    .info-box { background: var(--crema); border-radius: 10px; border: 0.5px solid var(--borde); padding: 24px; margin-top: 24px; }
+    .info-box h3 { font-family: 'Playfair Display', serif; font-size: 18px; color: var(--azul); margin-bottom: 12px; }
+    .info-box p { font-size: 14px; color: #444; line-height: 1.75; }
+    .contacto-box { background: var(--azul); border-radius: 10px; padding: 24px 28px; color: #fff; margin-top: 24px; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .contacto-box h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .contacto-box .datos { display: flex; flex-direction: column; gap: 4px; margin-top: 8px; }
+    .contacto-box .datos span { font-size: 13px; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 7px; }
+    .contacto-box .datos span i { color: var(--dorado); }
+    @media (max-width: 768px) { .sidebar-layout { grid-template-columns: 1fr; } .sidebar { position: static; } .intro-grid { grid-template-columns: 1fr; } .anios-grid { grid-template-columns: repeat(3, 1fr); } }
+  </style>
+</head>
+<body>
+<div id="topbar"></div>
+<div id="navbar"></div>
+
+<div class="page-hero" style="background: #163e72;">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Niveles Educativos</div>
+    <h1>Nivel Secundario</h1>
+    <p>1° a 6° año — Formando jóvenes críticos, comprometidos y preparados para el futuro.</p>
+  </div>
+</div>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Inicio</a><i class="fas fa-chevron-right"></i>
+    <span>Niveles</span><i class="fas fa-chevron-right"></i>
+    <span>Nivel Secundario</span>
+  </div>
+</div>
+
+<div class="content-area">
+  <div class="sidebar-layout">
+    <aside class="sidebar">
+      <div class="nivel-header">Nivel Secundario</div>
+      <a href="nivel-secundario.html" class="active">Presentación</a>
+      <a href="#talleres">Talleres</a>
+      <a href="#centro">Centro de Estudiantes</a>
+      <a href="#campamentos">Campamentos</a>
+      <a href="#exalumnos">Ex Alumnos</a>
+      <a href="#eoe">Equipo de Orientación</a>
+      <div class="sep"></div>
+      <div class="nivel-header">Otros niveles</div>
+      <a href="nivel-inicial.html">Nivel Inicial</a>
+      <a href="nivel-primario.html">Nivel Primario</a>
+    </aside>
+
+    <div>
+      <div class="intro-grid">
+        <div class="intro-img">
+          <img src="../images/secundaria.jpg" alt="Nivel Secundario">
+        </div>
+        <div class="intro-text">
+          <h2>Instituto José Manuel Estrada</h2>
+          <p>El Nivel Secundario fue reconocido en julio de 1963 como Establecimiento Privado incorporado a la enseñanza oficial. Con más de 60 años de historia, formamos jóvenes con identidad, pensamiento crítico y compromiso social.</p>
+          <p>Nuestra propuesta combina la excelencia académica con la formación en valores verbitas, a través de talleres, proyectos y una vida institucional activa que prepara a los egresados para los desafíos del mundo actual.</p>
+          <a href="../index.html#inscripcion" class="btn-primary" style="margin-top:8px;"><i class="fas fa-pen"></i> Inscripción 2026</a>
+        </div>
+      </div>
+
+      <div class="section-label">Años</div>
+      <div class="anios-grid">
+        <div class="anio-item">1°<span>año</span></div>
+        <div class="anio-item">2°<span>año</span></div>
+        <div class="anio-item">3°<span>año</span></div>
+        <div class="anio-item">4°<span>año</span></div>
+        <div class="anio-item">5°<span>año</span></div>
+        <div class="anio-item">6°<span>año</span></div>
+      </div>
+
+      <div id="talleres" style="margin-top:36px;">
+        <div class="section-label">Talleres</div>
+        <div class="prop-grid">
+          <div class="prop-card"><i class="fas fa-theater-masks"></i><h4>Teatro</h4><p>Espacio de expresión, creatividad y trabajo en equipo a través del arte dramático.</p></div>
+          <div class="prop-card"><i class="fas fa-music"></i><h4>Música</h4><p>Formación musical y práctica instrumental para alumnos de todos los años.</p></div>
+          <div class="prop-card"><i class="fas fa-newspaper"></i><h4>Periodismo</h4><p>Producción de contenidos, redacción y comunicación institucional.</p></div>
+          <div class="prop-card"><i class="fas fa-laptop-code"></i><h4>Informática</h4><p>Programación, diseño y herramientas digitales para el siglo XXI.</p></div>
+          <div class="prop-card"><i class="fas fa-futbol"></i><h4>Deportes</h4><p>Fútbol, vóley y atletismo en nuestro campo de deportes propio.</p></div>
+          <div class="prop-card"><i class="fas fa-hands-helping"></i><h4>Solidaridad</h4><p>Proyectos de servicio comunitario y acción pastoral a lo largo del año.</p></div>
+        </div>
+      </div>
+
+      <div class="info-box" id="centro">
+        <h3><i class="fas fa-users" style="color:var(--azul);margin-right:10px;"></i>Centro de Estudiantes</h3>
+        <p>El Centro de Estudiantes es el espacio de participación democrática de los alumnos del secundario. Organiza actividades culturales, recreativas y solidarias, representando los intereses y la voz de todos los estudiantes ante la conducción institucional.</p>
+      </div>
+
+      <div class="info-box" id="campamentos" style="margin-top:16px;">
+        <h3><i class="fas fa-campground" style="color:var(--azul);margin-right:10px;"></i>Campamentos</h3>
+        <p>Los campamentos son una experiencia formativa fundamental en el secundario. Permiten a los alumnos fortalecer vínculos, desarrollar autonomía y vivir valores como la solidaridad y el trabajo en equipo en contextos de convivencia al aire libre. Se realizan por año o ciclo, con docentes y coordinadores especializados.</p>
+      </div>
+
+      <div class="info-box" id="exalumnos" style="margin-top:16px;">
+        <h3><i class="fas fa-graduation-cap" style="color:var(--azul);margin-right:10px;"></i>Ex Alumnos</h3>
+        <p>La comunidad de egresados del Instituto Estrada mantiene vivos los lazos con la institución. Si sos ex alumno/a y querés revincularte, contactanos a través de secretaría o en nuestras redes sociales.</p>
+      </div>
+
+      <div class="info-box" id="eoe" style="margin-top:16px;">
+        <h3><i class="fas fa-heart" style="color:var(--azul);margin-right:10px;"></i>Equipo de Orientación Escolar (EOE)</h3>
+        <p>El EOE del Nivel Secundario acompaña a los estudiantes en sus trayectorias educativas, ofreciendo orientación pedagógica, psicológica y vocacional. Trabaja de manera articulada con docentes y familias para garantizar el bienestar y la inclusión de cada joven.</p>
+      </div>
+
+      <div class="contacto-box">
+        <div>
+          <h3>Contacto — Nivel Secundario</h3>
+          <div class="datos">
+            <span><i class="fas fa-map-marker-alt"></i> Av. San Martín 3701, Rafael Calzada</span>
+            <span><i class="fas fa-phone"></i> (011) 4291-1269 int. 38</span>
+            <span><i class="fas fa-phone"></i> Preceptoría Básica: int. 44</span>
+            <span><i class="fas fa-envelope"></i> estradacolegio@gmail.com</span>
+          </div>
+        </div>
+        <a href="../index.html#inscripcion" class="btn-primary">Inscribirse 2026</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer"></div>
+<script src="../components.js"></script>
+<script>initPage('niveles');</script>
+</body>
+</html>
