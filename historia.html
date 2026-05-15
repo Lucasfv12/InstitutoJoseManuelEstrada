@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>De Steyl a Calzada — Instituto Estrada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    .content-area { max-width: 1200px; margin: 0 auto; padding: 44px 24px; }
+    .sidebar-layout { display: grid; grid-template-columns: 220px 1fr; gap: 32px; }
+    .sidebar { background: #fff; border-radius: 8px; border: 0.5px solid var(--borde); padding: 10px 0; align-self: start; position: sticky; top: 80px; }
+    .sidebar h4 { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gris); padding: 12px 18px 6px; }
+    .sidebar a { display: block; padding: 9px 18px; font-size: 13px; color: #333; text-decoration: none; border-left: 3px solid transparent; transition: all 0.15s; }
+    .sidebar a:hover, .sidebar a.active { color: var(--azul); background: var(--crema); border-left-color: var(--dorado); }
+    /* Timeline */
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--dorado), var(--azul)); border-radius: 2px; }
+    .tl-item { position: relative; margin-bottom: 32px; }
+    .tl-item::before { content: ''; position: absolute; left: -28px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--dorado); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--dorado); }
+    .tl-year { font-size: 11px; font-weight: 700; color: var(--dorado); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+    .tl-item h3 { font-family: 'Playfair Display', serif; font-size: 17px; color: var(--azul); margin-bottom: 8px; }
+    .tl-item p { font-size: 14px; color: #444; line-height: 1.75; }
+    .intro-box { background: var(--azul); border-radius: 10px; padding: 28px; color: #fff; margin-bottom: 36px; }
+    .intro-box h2 { font-family: 'Playfair Display', serif; font-size: 20px; color: #fff; margin-bottom: 10px; }
+    .intro-box p { font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.75; }
+    @media (max-width: 768px) { .sidebar-layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+  </style>
+</head>
+<body>
+<div id="topbar"></div>
+<div id="navbar"></div>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">Institucional</div>
+    <h1>De Steyl a Rafael Calzada</h1>
+    <p>La historia de los Misioneros del Verbo Divino y su camino hasta nuestra comunidad.</p>
+  </div>
+</div>
+<div class="breadcrumb">
+  <div class="breadcrumb-inner">
+    <a href="../index.html">Inicio</a>
+    <i class="fas fa-chevron-right"></i>
+    <a href="institucional.html">Institucional</a>
+    <i class="fas fa-chevron-right"></i>
+    <span>Historia</span>
+  </div>
+</div>
+
+<div class="content-area">
+  <div class="sidebar-layout">
+    <aside class="sidebar">
+      <h4>Institucional</h4>
+      <a href="institucional.html">Equipo Directivo</a>
+      <a href="mision.html">Misión, Visión y Valores</a>
+      <a href="historia.html" class="active">De Steyl a Calzada</a>
+      <a href="mision-compartida.html">Misión Compartida</a>
+    </aside>
+
+    <div>
+      <div class="intro-box">
+        <h2>Congregación del Verbo Divino</h2>
+        <p>Los Misioneros del Verbo Divino somos una Congregación religioso-misionera fundada por San Arnoldo Janssen el 8 de septiembre de 1875 en Steyl, Holanda. Actualmente somos 6.000 miembros de 69 nacionalidades, organizados en 58 provincias religiosas presentes en 73 países del mundo.</p>
+      </div>
+
+      <div class="section-label">Nuestra historia</div>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-year">1875</div>
+          <h3>Fundación de la Congregación</h3>
+          <p>San Arnoldo Janssen funda la Congregación del Verbo Divino en Steyl, Holanda. En 1879 envía a sus primeros misioneros a China: San José Freinademetz y Juan Bautista Anzer.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1889</div>
+          <h3>Llegada a Argentina</h3>
+          <p>Los primeros misioneros del Verbo Divino destinados a la Argentina fueron Enrique Becher y Germán Löcken, quienes llegaron al país el 23 de octubre. En 1890 asumieron su primer campo de trabajo en Esperanza, Santa Fe.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1891</div>
+          <h3>Primer colegio en Argentina</h3>
+          <p>Dan comienzo al Colegio San José, siendo la primera iniciativa educativa de la Congregación del Verbo Divino en Argentina y en América.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1909</div>
+          <h3>Fundación de Villa Calzada</h3>
+          <p>Villa Calzada fue fundada el 18 de julio, en honor del Dr. Rafael Calzada, alma y promotor de cuanto sucedía en este paraje ubicado en el kilómetro 21 del Ferrocarril Sud.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1917</div>
+          <h3>Los Verbitas llegan a Calzada</h3>
+          <p>El 27 de julio, los padres Federico Vogt y Antonio Ernst firman la escritura de un terreno de 17 hectáreas. A los diez días arriban los Hermanos Felipe Schmitz y Jorge Rüttershoff, recibidos por el propio Dr. Calzada en la estación.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1922</div>
+          <h3>Inauguración de la Escuela Apostólica</h3>
+          <p>El 12 de marzo se inaugura oficialmente la Escuela Apostólica San Javier. El acto contó con aproximadamente 2.000 personas, la presencia del Obispo de La Plata y el Gobernador de la Provincia. Un tren especial trajo más de 800 visitantes desde Constitución.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1931</div>
+          <h3>Construcción de la Iglesia Santísima Trinidad</h3>
+          <p>Se inicia la construcción de la Iglesia Santísima Trinidad. El 10 de junio de 1933 tiene lugar la ceremonia de consagración, dedicada por el Nuncio Apostólico Monseñor F. Cortesi.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1953</div>
+          <h3>Parroquia Santísima Trinidad</h3>
+          <p>Se reconoce la constitución de la Parroquia Santísima Trinidad de Rafael Calzada, cuya sede parroquial se establece en la Iglesia del Seminario Apostólico San Javier.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1956</div>
+          <h3>Nace el Colegio José Manuel Estrada</h3>
+          <p>Comienza la actividad del Nivel Primario "Colegio José Manuel Estrada", para brindar educación a los niños y niñas de la localidad de Rafael Calzada.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1963</div>
+          <h3>Nivel Secundario reconocido</h3>
+          <p>Se reconoce al Nivel Secundario "Instituto José Manuel Estrada" como Establecimiento Privado incorporado a la enseñanza oficial, autorizándose el funcionamiento del primer año comercial diurno.</p>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">1998</div>
+          <h3>Jardín de Infantes</h3>
+          <p>El Nivel Inicial "Jardín José Manuel Estrada" se incorpora al Centro Educativo, surgiendo como una necesidad de la comunidad de contemplar todos los ciclos de estudio en una misma institución.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer"></div>
+<script src="../components.js"></script>
+<script>initPage('institucional');</script>
+</body>
+</html>
