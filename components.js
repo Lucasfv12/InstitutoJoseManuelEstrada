@@ -90,7 +90,7 @@ function renderNavbar(activePage) {
     <div class="navbar-inner">
       <a class="brand" href="${BASE}index.html">
         <div class="brand-escudo">
-          <img src="${BASE}images/escudo.png" alt="Escudo Instituto Estrada" style="width:38px;height:38px;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-shield-alt\' style=\'color:#fff;font-size:20px;\'></i>'">
+          <img src="${BASE}images/escudo2.png" alt="Escudo Instituto Estrada" style="width:38px;height:38px;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-shield-alt\' style=\'color:#fff;font-size:20px;\'></i>'">
         </div>
         <div class="brand-texto">
           <strong>Instituto José Manuel Estrada</strong>
@@ -115,7 +115,7 @@ function renderFooter() {
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="escudo">
-            <img src="${BASE}images/escudo.png" alt="Escudo" style="width:36px;height:36px;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-shield-alt\' style=\'color:#c49a1a;font-size:22px;\'></i>'">
+            <img src="${BASE}images/escudo2.png" alt="Escudo" style="width:36px;height:36px;object-fit:contain;" onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-shield-alt\' style=\'color:#c49a1a;font-size:22px;\'></i>'">
           </div>
           <h3>Instituto José Manuel Estrada</h3>
           <p>Congregación del Verbo Divino<br>Rafael Calzada, Buenos Aires<br>Desde 1956 formando personas</p>
